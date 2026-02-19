@@ -1768,31 +1768,32 @@ section {
 /* ================================
    Responsive Design
    ================================ */
-@media (max-width: 1200px) {
-    .profile-image-container {
-        width: 300px;
-        height: 300px;
-    }
 
-    .profile-image-wrapper {
-        width: 240px;
-        height: 240px;
-    }
-
-    .profile-ring {
-        width: 270px;
-        height: 270px;
-    }
-
-    .profile-ring.ring-2 {
-        width: 300px;
-        height: 300px;
+/* Large Desktop (1400px+) */
+@media (min-width: 1400px) {
+    .container {
+        max-width: 1320px;
     }
 }
 
-    .hero-content {
-        max-width: 100%;
+/* Desktop to Laptop (1200px) */
+@media (max-width: 1200px) {
+    .hero {
+        flex-direction: column;
+        padding: 140px 40px 80px;
         text-align: center;
+        gap: 50px;
+    }
+
+    .hero-content {
+        order: 2;
+        max-width: 100%;
+    }
+
+    .hero-visual {
+        order: 1;
+        opacity: 1;
+        animation: fadeInDown 0.8s ease forwards;
     }
 
     .hero-cta, .hero-social {
@@ -1802,11 +1803,49 @@ section {
     .hero-desc {
         margin: 0 auto 40px;
     }
-}
 
-@media (max-width: 992px) {
+    .profile-image-container {
+        width: 280px;
+        height: 280px;
+    }
+
+    .profile-image-wrapper {
+        width: 220px;
+        height: 220px;
+    }
+
+    .profile-ring {
+        width: 250px;
+        height: 250px;
+    }
+
+    .profile-ring.ring-2 {
+        width: 280px;
+        height: 280px;
+    }
+
     .about-grid {
         grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .experience-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Tablet (992px) */
+@media (max-width: 992px) {
+    .container {
+        padding: 0 20px;
+    }
+
+    section {
+        padding: 80px 0;
+    }
+
+    .section-title {
+        font-size: 32px;
     }
 
     .contact-wrapper {
@@ -1816,21 +1855,47 @@ section {
     .contact-info, .contact-form-wrapper {
         padding: 40px;
     }
+
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .experience-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .cert-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
 }
 
+/* Mobile Landscape & Small Tablet (768px) */
 @media (max-width: 768px) {
+    /* Navigation */
+    .navbar {
+        width: calc(100% - 24px);
+        padding: 12px 16px;
+        top: 10px;
+    }
+
     .nav-links {
         position: fixed;
         top: 0;
         right: -100%;
         width: 100%;
         height: 100vh;
-        background: var(--bg-primary);
+        background: rgba(10, 10, 15, 0.98);
+        backdrop-filter: blur(20px);
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        gap: 24px;
+        gap: 20px;
         transition: right 0.4s ease;
+        z-index: 1000;
     }
 
     .nav-links.active {
@@ -1838,8 +1903,8 @@ section {
     }
 
     .nav-link {
-        font-size: 24px;
-        padding: 16px 32px;
+        font-size: 22px;
+        padding: 14px 28px;
     }
 
     .btn-hire {
@@ -1851,70 +1916,415 @@ section {
         z-index: 1001;
     }
 
-    .navbar {
-        width: calc(100% - 32px);
-        padding: 12px 20px;
-    }
-
-    section {
-        padding: 80px 0;
-    }
-
-    .section-header {
-        margin-bottom: 50px;
-    }
-
-    .stats-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .experience-grid,
-    .projects-grid,
-    .cert-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .exp-header {
-        flex-direction: column;
-        gap: 16px;
-    }
-
-    .exp-meta {
-        text-align: left;
-    }
-
+    /* Hero */
     .hero {
-        padding: 100px 20px;
+        padding: 120px 20px 60px;
+        min-height: auto;
+    }
+
+    .hero-title .line {
+        font-size: 18px;
+    }
+
+    .hero-title .name-line {
+        font-size: 38px;
     }
 
     .typing-container {
-        font-size: 18px;
-    }
-}
-
-@media (max-width: 480px) {
-    .hero-title .name-line {
-        font-size: 36px;
+        font-size: 16px;
     }
 
-    .hero-cta {
-        flex-direction: column;
+    .hero-desc {
+        font-size: 15px;
     }
 
-    .btn-primary, .btn-outline {
-        width: 100%;
-        justify-content: center;
+    .hero-badge {
+        font-size: 12px;
+        padding: 6px 16px;
+    }
+
+    .profile-image-container {
+        width: 220px;
+        height: 220px;
+    }
+
+    .profile-image-wrapper {
+        width: 180px;
+        height: 180px;
+    }
+
+    .profile-ring {
+        width: 200px;
+        height: 200px;
+    }
+
+    .profile-ring.ring-2 {
+        width: 220px;
+        height: 220px;
+    }
+
+    .scroll-indicator {
+        display: none;
+    }
+
+    /* Sections */
+    .section-header {
+        margin-bottom: 40px;
+    }
+
+    .section-title {
+        font-size: 28px;
+    }
+
+    .section-tag {
+        font-size: 12px;
+        padding: 6px 16px;
+    }
+
+    /* About */
+    .about-text {
+        padding: 25px;
+    }
+
+    .about-text p {
+        font-size: 15px;
+    }
+
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+    }
+
+    .stat-card {
+        padding: 20px 15px;
     }
 
     .stat-number {
         font-size: 32px;
     }
 
+    .stat-label {
+        font-size: 12px;
+    }
+
+    .info-card {
+        padding: 25px;
+    }
+
+    /* Skills */
+    .skills-container {
+        gap: 15px;
+        padding-bottom: 50px;
+    }
+
+    .skill-item {
+        width: 70px;
+        height: 70px;
+        font-size: 28px;
+        border-radius: 16px;
+    }
+
+    .skill-item::after {
+        font-size: 10px;
+        padding: 4px 10px;
+    }
+
+    /* Experience */
+    .exp-card {
+        padding: 25px;
+    }
+
+    .exp-header {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .exp-meta {
+        text-align: left;
+    }
+
+    .exp-icon {
+        width: 50px;
+        height: 50px;
+        font-size: 20px;
+    }
+
+    .exp-title {
+        font-size: 20px;
+    }
+
+    .exp-list li {
+        font-size: 14px;
+    }
+
+    /* Projects */
+    .project-content {
+        padding: 20px;
+    }
+
+    .project-content h3 {
+        font-size: 18px;
+    }
+
+    .project-image {
+        height: 180px;
+    }
+
+    /* Certificates */
+    .cert-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .cert-preview {
+        height: 120px;
+    }
+
+    .cert-preview i {
+        font-size: 40px;
+    }
+
+    .cert-content {
+        padding: 15px;
+    }
+
+    .cert-content h3 {
+        font-size: 15px;
+    }
+
+    /* Contact */
     .contact-info, .contact-form-wrapper {
         padding: 30px 20px;
     }
 
     .contact-info h2 {
+        font-size: 26px;
+    }
+
+    .contact-item {
+        gap: 15px;
+    }
+
+    .contact-icon {
+        width: 45px;
+        height: 45px;
+        font-size: 18px;
+    }
+
+    /* Footer */
+    .footer {
+        padding: 40px 0;
+    }
+
+    .footer-content {
+        gap: 12px;
+    }
+}
+
+/* Mobile Portrait (480px) */
+@media (max-width: 480px) {
+    .hero {
+        padding: 110px 16px 50px;
+    }
+
+    .hero-title .name-line {
+        font-size: 32px;
+    }
+
+    .hero-title .line {
+        font-size: 16px;
+    }
+
+    .typing-container {
+        font-size: 14px;
+    }
+
+    .hero-desc {
+        font-size: 14px;
+        line-height: 1.7;
+    }
+
+    .hero-cta {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .btn-primary, .btn-outline {
+        width: 100%;
+        justify-content: center;
+        padding: 14px 24px;
+        font-size: 14px;
+    }
+
+    .hero-social {
+        gap: 12px;
+    }
+
+    .social-link {
+        width: 44px;
+        height: 44px;
+        font-size: 18px;
+    }
+
+    .profile-image-container {
+        width: 180px;
+        height: 180px;
+    }
+
+    .profile-image-wrapper {
+        width: 150px;
+        height: 150px;
+    }
+
+    .profile-ring {
+        width: 165px;
+        height: 165px;
+    }
+
+    .profile-ring.ring-2 {
+        width: 180px;
+        height: 180px;
+    }
+
+    section {
+        padding: 60px 0;
+    }
+
+    .section-title {
+        font-size: 24px;
+    }
+
+    .stats-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+    }
+
+    .stat-card {
+        padding: 18px 12px;
+    }
+
+    .stat-number {
         font-size: 28px;
+    }
+
+    .edu-item {
+        padding: 15px;
+        gap: 15px;
+    }
+
+    .edu-year {
+        font-size: 12px;
+        min-width: 40px;
+    }
+
+    .edu-details h4 {
+        font-size: 14px;
+    }
+
+    .skill-item {
+        width: 60px;
+        height: 60px;
+        font-size: 24px;
+        border-radius: 14px;
+    }
+
+    .exp-card {
+        padding: 20px;
+    }
+
+    .exp-title {
+        font-size: 18px;
+    }
+
+    .exp-company {
+        font-size: 14px;
+    }
+
+    .exp-tags {
+        gap: 8px;
+    }
+
+    .exp-tags span {
+        font-size: 11px;
+        padding: 4px 10px;
+    }
+
+    .project-image {
+        height: 150px;
+    }
+
+    .project-icon i {
+        font-size: 45px;
+    }
+
+    .project-tags span {
+        font-size: 10px;
+        padding: 3px 10px;
+    }
+
+    .cert-preview {
+        height: 100px;
+    }
+
+    .cert-preview i {
+        font-size: 35px;
+    }
+
+    .cert-preview span {
+        font-size: 10px;
+    }
+
+    .cert-badge {
+        font-size: 8px;
+        padding: 4px 8px;
+        top: 8px;
+        right: 8px;
+    }
+
+    .form-group input,
+    .form-group textarea {
+        padding: 14px 16px;
+        font-size: 14px;
+    }
+
+    .btn-submit {
+        padding: 14px 24px;
+        font-size: 14px;
+    }
+
+    .contact-social a {
+        width: 40px;
+        height: 40px;
+        font-size: 16px;
+    }
+}
+
+/* Extra Small (360px) */
+@media (max-width: 360px) {
+    .hero-title .name-line {
+        font-size: 28px;
+    }
+
+    .navbar {
+        width: calc(100% - 16px);
+        padding: 10px 12px;
+    }
+
+    .logo-text {
+        font-size: 24px;
+    }
+
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .profile-image-container {
+        width: 160px;
+        height: 160px;
+    }
+
+    .profile-image-wrapper {
+        width: 130px;
+        height: 130px;
     }
 }
